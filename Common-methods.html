@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Common jQuery Methods</title>
+    <style>
+        .correct{
+            color:green;
+        }
+        .wrong{
+            color: red;
+            background: pink;
+        }
+        .done{
+            color:gray;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Common jQuery Methods</h1>
+    <ul id="commonmethod">
+        <li>val()</li>
+        <li>text()</li>
+        <li>attr()</li>
+        <li>html()</li>
+        <li>addClass</li>
+        <li>removeClass()</li>
+        <li>toggleClass()</li>
+    </ul>
+
+    <input type="text" name="text">
+
+    <img src="./eclipsejpg" alt="eclipce" >
+
+    <h2>Task list</h2>
+    <ul id="tasks"> 
+        <li>Go for a run</li>
+        <li>Make homework</li>
+        <li>Shop notebook</li>
+    </ul>
+
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous">
+    </script>
+
+    <script>
+        $('h1').text('You have been hacked!! ')
+
+        var current = $('#commonmethod').html()
+        $('#commonmethod').html(current + '<li>New element</li>')
+
+        current = $('input').val('Bye bye!');
+
+        current = $('img').val('width');
+        console.log(current);
+        
+        $('img').attr('width', '30')
+
+        $('img').attr('src','luna.jpeg')
+
+        $('#tasks').addClass('correct')
+
+        $('#tasks').toggleClass('wrong')
+
+        $('#tasks').toggleClass('wrong')
+
+        $('#tasks li:first').addClass('done')
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Common jQuery events</title>
+</head>
+<body>
+    
+    <h1>Common jQuery events</h1>
+    <input type="text" placeholder="Write something..." id="something">
+
+    <button>Don't clicke</button>
+    <button>Seriously don't click me!</button>
+    <button>Ok, click me!</button>
+
+    <input type="text" name="" id="add" placeholder="Add somthing">
+
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ul>
+
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous">
+    </script>
+
+    <script>
+
+        // Evento click
+        $('button').click(function(){
+             console.log($(this).text()); 
+             });
+        
+        //Evento keypress
+        $('#something').keypress(function(event){
+            console.log('You typed: ' + event.key);
+            if(event.which === 13){
+                alert('You can go on!');
+            }
+            });
+
+        //Evento on
+        $('#add').on('keypress',function(event){
+            if(event.which === 13){
+                $('ul').append('<li>'+$(this).val()+'</li>')
+                console.log('Adding '+$(this).val());
+                $(this).val('');
+            }
+        });
+
+        $('li').on('click', function(event){
+            console.log($(this).text());
+        });
+    </script>
+</body>
+</html>

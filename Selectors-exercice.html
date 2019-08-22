@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous">
+    </script>
+    <title>jQuery Selectors</title>
+</head>
+<body>
+    <div>Div 1</div>
+    <div class="highlight">Div 2</div>
+    <div id="third">Div 3</div>
+    <div class="highlight">Div 4</div>
+
+    <script>
+    $('div').css('background','purple') 
+    $('.highlight').css('width','200') 
+    $('#third').css('border','solid orange 10px') 
+    $('div:first-of-type').css('color','pink') 
+    </script>
+</body>
+</html>
