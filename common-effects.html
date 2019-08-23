@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery common effects</title>
+
+    <style>
+        div{
+            background-color: yellow;
+            width: 200px;
+            padding: 40px;
+            margin: 20px;
+            border: 1px solid black;
+            
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery common effects</h1>
+
+    <h2>Fade Out example</h2>
+    <div class="fade">Don't fade me!</div>
+    <div class="fade">Please don't fade me out!</div>
+    <div class="fade">Help! Help!</div>
+    <button id="fade-btn">Click me!</button>
+
+    <h2>Slide Out example</h2>
+    <div class="slide">Don't fade me!</div>
+    <div class="slide">Please don't fade me out!</div>
+    <div class="slide">Help! Help!</div>
+    <button id="slide-btn">Click me!</button>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			crossorigin="anonymous">
+    </script>
+
+    <script>
+        $('#fade-btn').on('click', function(){
+            $('.fade').fadeOut(3000, function(){ //Cambia la transparencia del elemento, dejandolo invisible.
+                $(this).remove(); //Elimina el elemento del DOM
+                console.log('FadeOut completed');
+            });
+        });
+
+        $('#slide-btn').on('click', function(){
+            $('.slide').slideUp(/*'slow'*/3000);
+            console.log('Slide done');
+        });
+    </script>
+</body>
+</html>

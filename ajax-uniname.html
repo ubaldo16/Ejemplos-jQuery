@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax UIname example</title>
+</head>
+<body>
+    <h1>Uinames example</h1>
+
+    <input type="number" id="amount" placeholder="How many users">
+   
+    <h2>Users</h2>
+    <ul id="users">
+
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			crossorigin="anonymous">
+    </script>
+    <script>
+        $('#amount').on('keypress', function(event){
+            if(event.which === 13){
+                $('#users').html('')
+                $.ajax({ 
+            method: "GET", 
+            url: "https://uinames.com/api/?amount="+ $('#amount').val() +"&region=mexico", 
+            success: function(data){ 
+                //console.log(data);
+                if($('#amount').val() == 1){
+                    $('#users').append('<li>' + data.name + '' + data.surname + '</li>');
+                }
+                var i, user;
+                for (i=0; i < data.length; i++){
+                    user =data[i];
+                    //console.log(user);
+                    $('#users').append('<li>' + user.name + '' + user.surname + '</li>');
+                }
+                }
+            }) 
+            }
+        })
+        
+    </script>
+</body>
+</html>
